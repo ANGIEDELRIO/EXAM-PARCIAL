@@ -64,7 +64,8 @@ class _FormularioPage extends State<FormularioPage> {
                       SizedBox(height: 18),
                       Header(title: 'Sex'),
                       SizedBox(height: 18),
-                      ComboBoxSexo(),
+                      switchFemale(),
+                      switchMale(),
                       SizedBox(height: 18),
                       Boton1(texto1: 'SAVE'),
                     ],
@@ -102,50 +103,30 @@ class Boton1 extends StatelessWidget {
   }
 }
 
-class ComboBoxSexo extends StatefulWidget {
-  @override
-  _ComboBoxSexoState createState() => _ComboBoxSexoState();
+Widget switchFemale() {
+  return SwitchListTile(
+    value: true,
+    title: Text(
+      'Female',
+      style: TextStyle(
+        fontSize: 14,
+      ),
+    ),
+    onChanged: (val) {},
+  );
 }
 
-class _ComboBoxSexoState extends State<ComboBoxSexo> {
-  List<String> _sexo = [
-    'Select your sex',
-    'Female',
-    'Male',
-  ];
-  String _actual = 'Select your sex';
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: DropdownButton(
-                value: _actual,
-                items: getItems(),
-                onChanged: (option) {
-                  setState(() {});
-                  _actual = option;
-                },
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  List<DropdownMenuItem<String>> getItems() {
-    List<DropdownMenuItem<String>> options = List();
-    _sexo
-        .map((prueba1) => options.add(DropdownMenuItem(
-              child: Text(prueba1),
-              value: prueba1,
-            )))
-        .toString();
-    return options;
-  }
+Widget switchMale() {
+  return SwitchListTile(
+    value: true,
+    title: Text(
+      'Male',
+      style: TextStyle(
+        fontSize: 14,
+      ),
+    ),
+    onChanged: (val) {},
+  );
 }
 
 class CajaFecha extends StatefulWidget {
