@@ -118,7 +118,7 @@ Widget switchFemale() {
 
 Widget switchMale() {
   return SwitchListTile(
-    value: true,
+    value: false,
     title: Text(
       'Male',
       style: TextStyle(
